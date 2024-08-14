@@ -4,8 +4,6 @@ import org.example.input.InputFilesHandler;
 import org.example.output.OutputProxy;
 
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 
 /**
  * Класс-посредник, реализующий взаимодействие между <b>InputFilesHandler</b> и <b>OutputProxy</b>.
@@ -39,7 +37,7 @@ public class TypeFilterMediator {
      * содержащихся в {@link TypeFilterMediator#inputFilesHandler}
      */
     public void processInput() {
-        String line = "";
+        String line;
         while (inputFilesHandler.getDumpResidue() > 0)  {
             try {
                 line = inputFilesHandler.getLine();
@@ -56,13 +54,6 @@ public class TypeFilterMediator {
 
                     } else outputProxies[2].update(line);
                 }
-            /* } catch (NumberFormatException nfe) {
-                if (nfe.getMessage().contains("neither a decimal digit number, " +
-                        "decimal point, nor \"e\" notation exponential mark")) {
-                    outputProxies[2].update(line.replaceAll("^\\s+", ""));
-                }
-                */
-                
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

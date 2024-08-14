@@ -13,7 +13,7 @@ import java.math.BigInteger;
 public class OutputProxy<T> implements IOutput<T> {
 
     /** Строковое представление пути файла */
-    private String filePath;
+    private final String filePath;
     /** Ссылка на инкапсулированный реальный объект выходных данных */
     private IOutput output;
 
